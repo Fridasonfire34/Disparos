@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveler - {{travelName}}</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      padding: 28px; /* 0.3 * 94 = 28.2px */
+      line-height: 1;
+      background: white;
+      font-size: 14px;
+    }
+
+    /* HEADER */
+    .header-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 22px; /* lineHeight */
+      font-size: 14px;
+      font-weight: bold;
+      align-items: center;
+    }
+
+    .header-item {
+      text-align: left;
+    }
+
+    .header-item.date {
+      text-align: center;
+    }
+
+    .header-item.docname {
+      text-align: center;
+    }
+
+    .header-item.page-info {
+      text-align: right;
+    }
+
+    /* TRAVEL NAME TITLE */
+    .travel-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin: 22px 0 22px 0; /* 3 * lineHeight */
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 12px;
+    }
+
+    thead {
+      background-color: #f5f5f5;
+    }
+
+    th {
+      border: 1px solid #000;
+      padding: 8px 10px;
+      text-align: center;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      height: 22px; /* lineHeight */
+      vertical-align: middle;
+    }
+
+    td {
+      border: 1px solid #000;
+      padding: 8px 10px;
+      text-align: center;
+      height: 22px; /* lineHeight */
+      vertical-align: middle;
+      font-size: 11px;
+    }
+
+    /* BARCODE FONT */
+    .barcode-cell {
+      font-family: 'Free 3 of 9 Extended', monospace;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* PART NUMBER - puede ser más pequeño si es muy largo */
+    .part-number-cell {
+      font-size: 11px;
+      word-wrap: break-word;
+      font-family: 'Calibri', 'Arial', sans-serif;
+    }
+
+    /* FOOTER */
+    .footer-section {
+      margin-top: 22px; /* lineHeight */
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-item {
+      padding: 8px 0;
+    }
+
+    .footer-item.sequence {
+      text-align: center;
+    }
+
+    .footer-item.total-parts {
+      text-align: right;
+    }
+
+    /* PAGE BREAK para múltiples páginas */
+    .page-break {
+      page-break-after: always;
+    }
+
+    @media print {
+      body {
+        padding: 28px;
+      }
+      .page-break {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-section">
+    <div class="header-item"><strong>TRAVELER</strong></div>
+    <div class="header-item date">{{currentDate}}</div>
+    <div class="header-item docname">{{docName}}</div>
+    <div class="header-item page-info">Hoja {{pageNumber}} de {{totalPages}}</div>
+  </div>
+
+  <!-- TRAVEL NAME TITLE -->
+  <div class="travel-title">
+    {{travelNameClean}}
+  </div>
+
+  <!-- DATA TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 4.2%;">Mat'l</th>
+        <th style="width: 10.3%;">N. parte</th>
+        <th style="width: 9.0%;">Sec</th>
+        <th style="width: 3.5%;">Rev</th>
+        <th style="width: 4.2%;">Cant</th>
+        <th style="width: 4.4%;">Prog</th>
+        <th style="width: 9.3%;">Embarques</th>
+        <th style="width: 16.5%;">Packing</th>
+        <th style="width: 6.3%;">Kanban</th>
+        <th style="width: 7.4%;">Liberado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{tableRows}}
+    </tbody>
+  </table>
+
+  <!-- FOOTER -->
+  <div class="footer-section">
+    <div class="footer-item">Cart Name - {{cartNamePrefix}} {{firstPacking}}</div>
+    <div class="footer-item sequence">Sequence - {{travelNameClean}}</div>
+    <div class="footer-item total-parts">Total Parts - {{totalQty}}</div>
+  </div>
+
+</body>
+</html>

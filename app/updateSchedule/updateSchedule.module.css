@@ -1,0 +1,708 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.container {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0953ddb6 0%, rgba(255, 255, 255, 0.288) 100%);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  color: rgb(255, 255, 255);
+  gap: 20px;
+}
+
+.header h1 {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.semanaActualLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 150px;
+  text-align: center;
+}
+
+.semanaValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.updateButton {
+  background: linear-gradient(135deg, #1613e4 0%, #428ee6 100%);
+  color: white;
+  border: 2px solid rgb(23, 27, 248);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.updateButton:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.updateButton:active {
+  transform: translateY(0);
+}
+
+.regresarButton {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 204, 34);
+  background-color: rgb(245, 188, 3);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.regresarButton:hover {
+  background-color: white;
+  color: #000000;
+}
+
+.mainContent {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.leftSection {
+  flex: 1;
+  min-width: 400px;
+}
+
+.rightSection {
+  flex: 1;
+  min-width: 350px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Opciones Section */
+.optionsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  align-items: flex-end;
+}
+
+.searchAndDeleteRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  align-items: flex-end;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+  height: 48px;
+  text-transform: uppercase;
+  align-self: flex-end;
+}
+
+.deleteButton {
+  padding: 12px 35px;
+  background: linear-gradient(135deg, #ff0000 0%, #ff6262 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(245, 87, 108, 0.3);
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  min-width: 180px;
+}
+
+.deleteButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.deleteButton:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.deleteButton:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+}
+
+.deleteButton:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(245, 87, 108, 0.3);
+}
+
+.deleteButton:disabled {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+  color: #718096;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+  transform: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Table */
+.tableContainer {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: auto;
+  height: 400px;
+  background: white;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table thead {
+  background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  color: #333;
+}
+
+.tableHead {
+  background-color: #4b83bb;
+  color: white;
+}
+
+.tableHeader {
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  border-right: 1px solid #3d6a99;
+  border-bottom: 2px solid #2c5282;
+  color: white;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.filterButtonContainer {
+  position: relative;
+}
+
+.filterButton {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.filterButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filterButton.active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.filterDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+  max-width: 260px;
+  padding: 8px;
+  margin-top: 2px;
+}
+
+.filterDropdownSelect {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+.filterDropdownSelect:focus {
+  outline: none;
+  border-color: #4b83bb;
+  box-shadow: 0 0 0 2px rgba(75, 131, 187, 0.2);
+}
+
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr.selected {
+  background-color: #0162bd;
+  color: white;
+}
+
+.table tbody tr.selected td {
+  color: white;
+}
+
+/* Right Section */
+.editTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.editFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.editFormGroup label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.editFormGroup input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}
+
+.editFormGroup input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.buttonRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.editButtonLarge {
+  flex: 1;
+  background: linear-gradient(135deg, #11862e 0%, #78cc7f 100%);
+  color: white;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(54, 119, 65, 0.3);
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.editButtonLarge::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.editButtonLarge:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.editButtonLarge:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(54, 119, 65, 0.4);
+  background: linear-gradient(135deg, #10943c 0%, #81e986 100%);
+}
+
+.editButtonLarge:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.editButtonLarge:disabled {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+  color: #718096;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+  transform: none;
+}
+
+.deleteButtonLarge {
+  flex: 1;
+  background: linear-gradient(135deg, #e60808 0%, #f5576c 100%);
+  color: white;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(245, 87, 108, 0.3);
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.deleteButtonLarge::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.deleteButtonLarge:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.deleteButtonLarge:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+  background: linear-gradient(135deg, #f5576c 0%, #e73333 100%);
+}
+
+.deleteButtonLarge:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(245, 87, 108, 0.3);
+}
+
+.deleteButtonLarge:disabled {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+  color: #718096;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+  transform: none;
+}
+
+.dateDisplay {
+  font-size: 12px;
+  color: #666;
+  margin-top: 12px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 3px solid #667eea;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .leftSection {
+    min-width: auto;
+  }
+
+  .rightSection {
+    min-width: auto;
+  }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  background: linear-gradient(135deg, #1613e4 0%, #428ee6 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modalContent {
+  padding: 25px;
+}
+
+.modalFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modalFormGroup label {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.fileInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.fileInputContainer:hover {
+  border-color: #1613e4;
+}
+
+.fileInput {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.fileName {
+  flex: 1;
+  padding: 12px 15px;
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fileInputContainer:hover .fileName {
+  color: #1613e4;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 0 25px 25px 25px;
+}
+
+.modalButtonCancel {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.modalButtonCancel:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.modalButtonAccept {
+  background: linear-gradient(135deg, #1613e4 0%, #428ee6 100%);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.modalButtonAccept:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 19, 228, 0.3);
+}
+
+.modalButtonAccept:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
