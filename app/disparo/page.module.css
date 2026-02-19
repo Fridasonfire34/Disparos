@@ -190,6 +190,15 @@
   align-items: center;
 }
 
+.userGreeting {
+  color: #333;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  padding: 0 15px;
+  border-right: 1px solid #ddd;
+}
+
 .disparoHeader h1 {
   margin: 0;
   color: #333;

@@ -15,6 +15,7 @@ export default function DisparoScreen() {
   const [error, setError] = useState<string | null>(null);
   const [authenticated, setAuthenticated] = useState(false);
   const [userType, setUserType] = useState<string | null>(null);
+  const [nombreEmpleado, setNombreEmpleado] = useState<string>('');
   const [numeroEmpleadoActual, setNumeroEmpleadoActual] = useState<number | null>(null);
   const [editedRows, setEditedRows] = useState<Set<number>>(new Set());
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
@@ -212,6 +213,7 @@ export default function DisparoScreen() {
         sessionStorage.setItem('tipo', tipo || '');
         
         setNumeroEmpleadoActual(Number(numeroEmpleado));
+        setNombreEmpleado(nombreEmpleado);
         setUserType(tipo || 'User');
         setAuthenticated(true);
       } else {
@@ -1935,6 +1937,22 @@ export default function DisparoScreen() {
               Control de Disparos
             </button>
           </div>
+          <div className={styles.navSection}>
+            <button 
+              className={styles.navCategory}
+              onClick={() => {
+                router.push('/usuarios');
+                setShowSidebar(false);
+              }}
+              disabled={userType !== 'Administrador'}
+              style={{
+                opacity: userType !== 'Administrador' ? 0.5 : 1,
+                cursor: userType !== 'Administrador' ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Usuarios
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -2056,6 +2074,11 @@ export default function DisparoScreen() {
             >
               ✕ Limpiar filtros
             </button>
+          )}
+          {nombreEmpleado && (
+            <span className={styles.userGreeting}>
+              👤 Bienvenido, {nombreEmpleado}
+            </span>
           )}
           <button 
             className={styles.logoutButton}
