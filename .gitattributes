@@ -1,0 +1,18 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# TypeScript
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
+
+# JavaScript
+*.js linguist-detectable=true
+*.jsx linguist-detectable=true
+
+# CSS
+*.css linguist-detectable=true
+
+# Exclude generated files from language stats
+yarn.lock linguist-generated=true
+package-lock.json linguist-generated=true
+*.module.css linguist-language=CSS
