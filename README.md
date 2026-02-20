@@ -43,16 +43,7 @@ Sistema web para la gestión de programación de producción (disparos) y genera
   - `Travelers`
 - Fuente de barcode: Free 3 of 9 (`public/fonts/FRE3OF9X.TTF`)
 
-## ⚙️ Instalación
-
-1. **Clonar el repositorio**
-
-```bash
-git clone <repository-url>
-cd disparo
-```
-
-2. **Instalar dependencias**
+1. **Instalar dependencias**
 
 ```bash
 npm install
@@ -60,7 +51,7 @@ npm install
 
 ⚠️ **Recomendación**: Migrar credenciales a variables de entorno antes de producción.
 
-3. **Ejecutar en modo desarrollo**
+2. **Ejecutar en modo desarrollo**
 
 ```bash
 npm run dev
@@ -117,33 +108,6 @@ disparo/
    - PDFs individuales por traveler
    - Excel de Doc Escaner
 
-## 🗄️ Esquema de Base de Datos
-
-### Tablas Principales
-
-#### SOL
-
-- `Work Order`, `Child Material`, `Child Description`
-- `Qty`, `Logistic Group`, `Packing`
-- `TRAVEL NAME`, `Linea`, `BalloonNumber`
-- `Color Grupo`, `Semana`, `Supply ID`, `LG Color ID`
-
-#### Packings
-
-Similar a SOL + campo `Año`
-
-#### Tablas de Color
-
-- **BOA**: `Tabla Verde BOA`, `Tabla Azul BOA`, `Tabla Amarillo BOA`
-- **VIPER**: `Tabla Rosa VIPER`, `Tabla Verde VIPER`, `Tabla Amarillo VIPER`
-- **CDU**: Usa tablas VIPER mapeadas por color
-
-#### Doc Escaner
-
-- `PartNumber`, `BuildSequence`, `BalloonNumber`
-- `Qty`, `PONo`, `VendorNo`
-- `PackingDiskNo`, `Linea`
-
 ## 📄 Formato de PDF Travelers
 
 Cada PDF incluye:
@@ -162,21 +126,6 @@ Cada PDF incluye:
 - **Nombre ZIP**: `Travelers-DISPARO-[fecha]-[hora].zip`
 
 ## 📦 APIs Principales
-
-### Travelers
-
-- `POST /api/Disparo/ProcessCSVTravelers` - Procesar CSV de travelers
-- `POST /api/Disparo/CheckTravelersSol` - Validar y preparar datos
-- `POST /api/Disparo/PrepareTravelersTables` - Poblar tablas de colores
-- `GET /api/Disparo/GetTravelersCompleteData` - Obtener datos completos
-- `POST /api/Disparo/GenerateTravelersZip` - Generar ZIP con PDFs y Excel
-
-### Disparos
-
-- `GET /api/Disparo/GetFamilias` - Obtener familias
-- `POST /api/Disparo/AddCajaAuto` - Agregar caja automática
-- `GET /api/Disparo/GetVarianzas` - Obtener varianzas
-- `POST /api/Disparo/ExportDisparo` - Exportar disparo
 
 ## 🔐 Seguridad
 
@@ -209,8 +158,10 @@ Este proyecto es de uso interno para gestión de producción.
 
 ## 👥 Autores
 
+Frida Gutierrez.
+
 Desarrollado para operaciones de manufactura automotriz.
 
 ---
 
-**Nota**: Este sistema está optimizado para líneas de producción BOA, VIPER y CDU. Personalizar según necesidades específicas de tu planta.
+**Nota**: Este sistema está optimizado para líneas de producción BOA, VIPER y CDU.
